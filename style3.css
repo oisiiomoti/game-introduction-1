@@ -1,0 +1,275 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  height: 100%;
+  text-align: center;
+}
+
+#wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* header */
+header {
+  position: relative;
+}
+
+header h1 {
+  text-align: center;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+nav {
+  /* display: none; */
+  height: 100vh;
+  width: 300px;
+  position: absolute;
+  top: 0;
+  right: -300px;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, .5);
+  transition: transform .5s;
+}
+
+#navBtn {
+  display: none;
+}
+
+#navBtn:checked ~ nav {
+  display: block;
+  transform: translateX(-300px);
+}
+
+.open {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: block;
+  z-index: 100;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #CCC;
+  border-radius: 2px;
+}
+
+#navBtn {
+  display: none;
+}
+
+#navBtn:checked ~ nav {
+  display: block;
+  transform: translateX(-300px);
+}
+
+.open {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: block;
+  z-index: 100;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #CCC;
+  border-radius: 2px;
+}
+
+.open::before,
+.open::after {
+  content: "";
+}
+
+.open span,
+.open::before,
+.open::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 30%;
+  width: 40%;
+  border-bottom: 2px solid #333;
+  transition: transform .5s;
+}
+
+.open::before {
+  transform: translateY(-8px);
+}
+
+.open::after {
+  transform: translateY(8px);
+}
+
+/*close button*/
+#navBtn:checked + .open span {
+  transform: scaleX(0);
+}
+
+#navBtn:checked + .open::before {
+  transform: rotate(45deg);
+}
+
+#navBtn:checked + .open::after {
+  transform: rotate(-45deg);
+}
+
+#navBtn:checked + .open span,
+#navBtn:checked + .open::before,
+#navBtn:checked + .open::after {
+  border-bottom-color: #EEE;
+}
+
+nav ul {
+  padding-bottom: 1rem;
+  margin: 0;
+  text-align: center;
+}
+
+nav ul li {
+  /* display: inline-block; */
+  margin: 0 10px;
+  padding: 10px 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #EEE;
+}
+
+/* main contents */
+main {
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 1200px;
+  flex-grow: 1;
+}
+
+section {
+  background: #FFF;
+  padding: 20px;
+  
+}
+
+.container{
+  display: flex;
+  gap: 20px;
+  flex-direction: row-reverse;
+}
+
+.column-img {
+  flex: 1;
+}
+
+.column-text {
+  flex: 2;
+}
+
+/* footer */
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+}
+
+/* タブレット用 */
+@media all and (min-width: 600px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* コンピュータ用 */
+@media all and (min-width: 1025px) {
+
+    header h1 {
+        font-size: 3rem;
+    }
+
+    nav {
+        display: block;
+        height: auto;
+        width: 100%;
+        position: static;
+        background-color: transparent;
+    }
+
+    nav ul li {
+        display: inline-block;
+    }
+
+    nav ul li a {
+        color: #333;
+    }
+
+    #navBtn,
+    .open {
+        display: none;
+    }
+
+    main {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    /* .sec01 {
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    } */
+
+    .container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+}
+
+/* a.pagetop {
+    display: block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 12px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #666;
+    color: #FFF;
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  } */
+
+image-button {
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+}
