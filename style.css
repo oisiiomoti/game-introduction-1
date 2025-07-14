@@ -171,7 +171,7 @@ main#index3 {
 }
 
 .tab-button {
-    background-color: #D0D0D0;
+    background-color: #808080;
     border: none;
     padding: 15px 50px;
     /* ボタンの内側の余白を増やしてサイズを大きくする */
@@ -180,11 +180,12 @@ main#index3 {
     transition: background-color 0.3s ease;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    color: #ffffff;
 }
 
 .tab-button.active {
-    background-color: #808080;
-    color: white;
+    background-color: #D0D0D0;
+    color: rgb(0, 0, 0);
 }
 
 .tab-contents {
